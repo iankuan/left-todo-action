@@ -11,7 +11,7 @@ outputs:
     description: 'Number of TODOs found'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/iankuan/left-todo-action:latest'
   args:
     - "--dir=${{ inputs.dir }}" 
     - "--summary=${{ inputs.summary }}" 
