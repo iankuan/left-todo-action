@@ -1,0 +1,25 @@
+name: Development
+
+# TODO define your custom test run workflow
+on:
+   workflow_dispatch: 
+      inputs:
+         dir:
+            description: "Path to subdirectory to scan"
+            type: string
+            default: ""
+         summary:
+            description: "Generate job summary"
+            type: boolean
+            default: false 
+  # act -W .github/workflows/dev.yaml --input dir=resources/test-assets
+
+jobs:
+   test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out the source code
+          uses: actions/checkout@v3
+        - name: Count TODOs
+          uses: ./
+# act -W .github/workflows/dev.yaml
